@@ -1,0 +1,79 @@
+html {
+  font-size: 1.2rem;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #222;
+  color: #fff;
+  font-family: "Taviraj", serif;
+}
+.flexStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: none;
+  padding: 3px;
+}
+.boxAnimation {
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(110deg, rgb(0, 66, 106) 33%, rgba(0, 0, 0, 0) 33%),
+    linear-gradient(110deg, #9adbe8 34%, #2dccd3 34%);
+  background-size: 400% 400%;
+  padding: 3px;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 5s ease infinite;
+}
+.boxAnimationPaused {
+  animation-play-state: paused;
+}
+.innerBox {
+  background: rgb(0, 134, 214);
+  padding: 2rem;
+}
+.buttonStyle {
+  width: 200px;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 10% 10%;
+  }
+
+  50% {
+    background-position: 50% 50%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For desktop: */
+  html {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* For tablets: */
+  html {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 320px) {
+  /* For Phones: */
+  html {
+    font-size: 0.6rem;
+  }
+}

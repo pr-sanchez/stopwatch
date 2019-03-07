@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>StopWatch</title>
+    <!--import bootstrap 4 css-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!--Custom font-->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Taviraj"
+      rel="stylesheet"
+    />
+    <!--Custom css-->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--import react development-->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <!--import Babel-->
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6.26.0/babel.js"
+    ></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      class StopWatch extends React.Component {
+        state = {
+          miliseconds: 0,
+          min: 0,
+          hour: 0,
+          sec: 0,
+          stopWatch: false,
+          firstClick: false
+        };
+        handleClear = () => {
+          clearInterval(this.timer);
+          this.setState({
+            miliseconds: 0,
+            min: 0,
+            hour: 0,
+            sec: 0,
+            stopWatch: false
+          });
+        };
+        handleStart = () => {
+          this.setState({
+            firstClick: true
+          });
+          this.setState(state => {
+            if (state.stopWatch) {
+              clearInterval(this.timer);
+            } else {
+              let start = Date.now() - this.state.miliseconds;
+              this.timer = setInterval(() => {
+                if (this.state.sec > 58) {
+                  this.setState(
+                    {
+                      min: this.state.min + 1,
+                      miliseconds: 0,
+                      sec: 0
+                    },
+                    () => {
+                      start = Date.now() - this.state.miliseconds;
+                    }
+                  );
+                }
+                if (this.state.min > 59) {
+                  this.setState({
+                    hour: this.state.hour + 1,
+                    min: 0
+                  });
+                }
+                let miliseconds = Date.now() - start;
+                let sec = Number((miliseconds / 1000).toFixed(0));
+                this.setState({
+                  miliseconds: miliseconds,
+                  sec
+                });
+              }, 1000);
+            }
+            return { stopWatch: !this.state.stopWatch };
+          });
+        };
+
+        AnimationPaused = () => {
+          const { sec, stopWatch, firstClick } = this.state;
+          if (firstClick && stopWatch === false && sec > 54 && sec < 60) {
+            return "boxAnimation boxAnimationPaused";
+          }
+          if (sec > 54 && sec < 60) {
+            return "boxAnimation";
+          } else {
+            return "box";
+          }
+        };
+        stopWatch = () => {
+          const { stopWatch, firstClick, sec } = this.state;
+          if (firstClick === false || sec < 1) {
+            return "Start";
+          }
+          if (stopWatch) {
+            return "Pause";
+          }
+          if (firstClick && stopWatch === false && sec >= 0) {
+            return "Continue";
+          }
+        };
+        render() {
+          const { sec, min, hour, stopWatch } = this.state;
+          return (
+            <div className="container">
+              <div className="flexStyle ">
+                <div className="box">
+                  <div className="innerBox">Hour: {hour}</div>
+                </div>
+                <div className="box">
+                  <div className="innerBox">Min: {min}</div>
+                </div>
+                <div className={this.AnimationPaused()}>
+                  <div className="innerBox">Sec: {sec}</div>
+                </div>
+              </div>
+              <div className="text-center">
+                <button
+                  className="btn btn-primary btn-lg buttonStyle"
+                  onClick={() => this.handleStart()}
+                >
+                  {this.stopWatch()}
+                </button>
+                <button
+                  className="btn btn-secondary btn-lg buttonStyle"
+                  onClick={() => this.handleClear()}
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<StopWatch />, rootElement);
+    </script>
+  </body>
+</html>
