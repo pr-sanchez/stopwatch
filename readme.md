@@ -1,6 +1,6 @@
 # StopWatch v.01
 
-Hello! this stopwatch is based on the knowledge obtained in the course [The Beginner's Guide to Reac](https://egghead.io/lessons/react-use-component-state-with-react)t given by  
+Hello! this stopwatch is based on the knowledge obtained in the course [The Beginner's Guide to Reac](https://egghead.io/lessons/react-introduction-to-the-beginner-s-guide-to-reactjs)t given by  
 [Kent C. Dodds](https://kentcdodds.com/) feel free to use it in whatever you want, and if you are so excited as me, go ahead and watch the course of Kent, it's free!
 
 # Project
