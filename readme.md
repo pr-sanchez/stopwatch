@@ -1,6 +1,6 @@
 # StopWatch v.01
 
-Hello! this stopwatch is based on the knowlege obtained in the course [The Beginner's Guide to Reac](https://egghead.io/lessons/react-use-component-state-with-react)t given by  
+Hello! this stopwatch is based on the knowledge obtained in the course [The Beginner's Guide to Reac](https://egghead.io/lessons/react-use-component-state-with-react)t given by  
 [Kent C. Dodds](https://kentcdodds.com/) feel free to use it in whatever you want, and if you are so excited as me, go ahead and watch the course of Kent, it's free!
 
 # Project
@@ -9,4 +9,4 @@ The project uses [cdns](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/) 
 
 # Collaboration
 
-Bugs? Pitfall? Feel free to fork and make request changes, i will check it out.
+Bugs? Pitfalls? Feel free to fork and make request changes, i will check it out.
