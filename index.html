@@ -46,7 +46,7 @@
           hour: 0,
           sec: 0,
           stopWatch: false,
-          firstClick: false
+          start: false
         };
         handleClear = () => {
           clearInterval(this.timer);
@@ -55,12 +55,13 @@
             min: 0,
             hour: 0,
             sec: 0,
-            stopWatch: false
+            stopWatch: false,
+            start: false
           });
         };
         handleStart = () => {
           this.setState({
-            firstClick: true
+            start: true
           });
           this.setState(state => {
             if (state.stopWatch) {
@@ -99,8 +100,8 @@
         };
 
         AnimationPaused = () => {
-          const { sec, stopWatch, firstClick } = this.state;
-          if (firstClick && stopWatch === false && sec > 54 && sec < 60) {
+          const { sec, stopWatch, start } = this.state;
+          if (start && stopWatch === false && sec > 54 && sec < 60) {
             return "boxAnimation boxAnimationPaused";
           }
           if (sec > 54 && sec < 60) {
@@ -110,14 +111,14 @@
           }
         };
         stopWatch = () => {
-          const { stopWatch, firstClick, sec } = this.state;
-          if (firstClick === false || sec < 1) {
+          const { stopWatch, start, sec } = this.state;
+          if (!start) {
             return "Start";
           }
           if (stopWatch) {
             return "Pause";
           }
-          if (firstClick && stopWatch === false && sec >= 0) {
+          if (start && !stopWatch) {
             return "Continue";
           }
         };
