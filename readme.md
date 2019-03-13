@@ -7,6 +7,10 @@ Hello! this stopwatch is based on the knowledge obtained in the course [The Begi
 
 The project uses [cdns](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/) to keep simplier the code, here you **wouldn't see webpack** files or files created by the [create-react-app](https://github.com/facebook/create-react-app), this is a simple stopwatch, also if you are expecting to see something about [Redux](https://es.redux.js.org/), this is not the place either.
 
+# App
+
+[View online](https://pr-sanchez.github.io/stopwatch/)
+
 # Collaboration
 
 Bugs? Pitfalls? Feel free to fork and make request changes, i will check it out.
