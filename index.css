@@ -2,14 +2,11 @@ html {
   font-size: 1.5rem;
 }
 body {
-  height: 100vh;
-  margin: 0;
-  display: grid;
-  place-items: center;
   background: #222;
   color: #fff;
   font-family: "Taviraj", serif;
 }
+
 .flexStyle {
   display: flex;
   justify-content: center;

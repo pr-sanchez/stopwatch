@@ -125,33 +125,47 @@
         render() {
           const { sec, min, hour, stopWatch } = this.state;
           return (
-            <div className="container">
-              <div className="flexStyle ">
-                <div className="box">
-                  <div className="innerBox">Hour: {hour}</div>
+            <React.Fragment>
+              <nav className="navbar navbar-dark bg-dark">
+                <a className="navbar-brand" href="#">
+                  StopWatch
+                </a>
+                <a
+                  className="nav-link"
+                  target="_blank"
+                  href="https://github.com/pr-sanchez/stopWatch"
+                >
+                  Github
+                </a>
+              </nav>
+              <div className="container" style={{ marginTop: "5%" }}>
+                <div className="flexStyle ">
+                  <div className="box">
+                    <div className="innerBox">Hour: {hour}</div>
+                  </div>
+                  <div className="box">
+                    <div className="innerBox">Min: {min}</div>
+                  </div>
+                  <div className={this.AnimationPaused()}>
+                    <div className="innerBox">Sec: {sec}</div>
+                  </div>
                 </div>
-                <div className="box">
-                  <div className="innerBox">Min: {min}</div>
-                </div>
-                <div className={this.AnimationPaused()}>
-                  <div className="innerBox">Sec: {sec}</div>
+                <div className="text-center">
+                  <button
+                    className="btn btn-primary btn-lg buttonStyle"
+                    onClick={() => this.handleStart()}
+                  >
+                    {this.stopWatch()}
+                  </button>
+                  <button
+                    className="btn btn-secondary btn-lg buttonStyle"
+                    onClick={() => this.handleClear()}
+                  >
+                    Clear
+                  </button>
                 </div>
               </div>
-              <div className="text-center">
-                <button
-                  className="btn btn-primary btn-lg buttonStyle"
-                  onClick={() => this.handleStart()}
-                >
-                  {this.stopWatch()}
-                </button>
-                <button
-                  className="btn btn-secondary btn-lg buttonStyle"
-                  onClick={() => this.handleClear()}
-                >
-                  Clear
-                </button>
-              </div>
-            </div>
+            </React.Fragment>
           );
         }
       }
